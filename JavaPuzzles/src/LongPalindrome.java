@@ -1,7 +1,9 @@
+// Prints the longest Palindrome in args array
+// gives default statement if none found.
+
 public class LongPalindrome
 {
-	// prints out longest palindrome in args array
-	public static void main(String [] args)
+	public static void main(String[] args)
 	{
 		System.out.println(getLongestPalindrome(args));
 	}
@@ -14,9 +16,12 @@ public class LongPalindrome
 		{
 			// StringBuilder used for reversing the String  
 			StringBuilder sb = new StringBuilder(word);
-			if(word.length()>longest.length() && sb.reverse().toString().equals(word))
-				//assign longest
+			// Test if each word is a palindrome && is longer than the return string
+			if(word.length()>longest.length() && sb.reverse().toString().equalsIgnoreCase(word))
 				longest=word;
+		}
+		if(longest.equals("")) {
+			return "No Palindrome Found";
 		}
 		return longest;
 	}
